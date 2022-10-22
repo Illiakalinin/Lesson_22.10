@@ -1,32 +1,50 @@
 * {
   box-sizing: border-box;
-  background-color: rgb(134, 60, 21);
 }
 
-p::first-letter {
-  font-size: 36px;
-  color: red;
+ul {
+  font-size: 0;
+  margin: 20px;
+  white-space: nowrap;
 }
 
-p::first-line {
-  color: green;
+li {
+  display: inline-block;
 }
 
-p::selection {
-  color: azure;
-  background-color: lightcoral;
+a {
+  text-decoration: none;
+  color: inherit;
+  padding: 10px 20px;
+  background-color: rgb(11, 184, 144);
+  font-size: 16px;
+
+  position: relative;
 }
 
-p::before {
-  content: "Paragraph:";
+a::before,
+a::after {
+  content: "";
+  width: 0;
+  transition: width 0.5s;
+  position: absolute;
+  height: 2px;
 }
 
-.firstWord::before {
-  content: "<<"; /*обов'язковий для before і after*/
-  color: chartreuse;
+a::after {
+  left: 0;
+  bottom: 0;
+  background-image: linear-gradient(to right, white, green);
 }
 
-.firstWord::after {
-  content: ">>";
-  color: chartreuse;
+a:hover::after,
+a:hover::before {
+  content: "";
+  width: 100%;
+}
+
+a::before {
+  right: 0;
+  top: 0;
+  background-image: linear-gradient(to left, white, green);
 }
