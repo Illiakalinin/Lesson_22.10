@@ -1,17 +1,32 @@
 * {
   box-sizing: border-box;
+  background-color: rgb(134, 60, 21);
 }
 
-header {
-  background-color: cornflowerblue;
-  height: 450px;
-  position: relative;
+p::first-letter {
+  font-size: 36px;
+  color: red;
 }
 
-h1 {
-  font-size: 52px;
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  left: 50%;
+p::first-line {
+  color: green;
+}
+
+p::selection {
+  color: azure;
+  background-color: lightcoral;
+}
+
+p::before {
+  content: "Paragraph:";
+}
+
+.firstWord::before {
+  content: "<<"; /*обов'язковий для before і after*/
+  color: chartreuse;
+}
+
+.firstWord::after {
+  content: ">>";
+  color: chartreuse;
 }
